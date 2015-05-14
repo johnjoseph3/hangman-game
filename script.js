@@ -24,7 +24,6 @@ function sanitize (arr){
   } 
   return sanArr;  
 }
-
 sanitize(hangmanWords);
 
 
@@ -34,47 +33,41 @@ function chooseWord (arr) {
   randomWord = arr[randomNum];
   return randomWord;
 }
-
 chooseWord(sanArr);
 
 
 
-underscoreNum = parseInt(randomWord.length);
+  
 
 function underscoreGen() {
-  underscoreLength = "";
-  
-  for (i = 0; i < randomWord.length; i++) {
+  underscoreNum = parseInt(randomWord.length);
+  display = [];
 
-  underscoreLength += "_ ";
+  for (i = 0; i < randomWord.length; i++) {
+    display.push("_")
   }
 }
-
 underscoreGen();
 
 
 
-document.querySelector('.game-word').textContent = underscoreLength;
+document.querySelector('.game-word').textContent = display.join(' ');
 
 var btn = document.querySelector('button');
+btn.addEventListener('click', userGuess);
 
-btn.addEventListener('click', function(){
+
+function userGuess() {
   userGuess = document.querySelector('input').value;
-})
-
-
-
-function compare(x) {
-  answer = "";
- 
+  
   for (i = 0; i < randomWord.length; i++) {
-    if (x == randomWord[i]) {
-      answer.push(x);
+    if (userGuess === randomWord[i]) {
+       display[i] = userGuess;
+       document.querySelector('.game-word').textContent = display.join(' ');
     }
   }
 }
 
-compare(userGuess);
 
 
 
