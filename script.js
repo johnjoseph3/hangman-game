@@ -12,6 +12,8 @@ var hangmanWords = [
   "come","made","may","part"
 ];
 
+
+
 function sanitize (arr){
   sanArr = [];
 
@@ -25,6 +27,8 @@ function sanitize (arr){
 
 sanitize(hangmanWords);
 
+
+
 function chooseWord (arr) {
   var randomNum = Math.floor(Math.random() * arr.length);
   randomWord = arr[randomNum];
@@ -33,8 +37,9 @@ function chooseWord (arr) {
 
 chooseWord(sanArr);
 
-underscoreNum = parseInt(randomWord.length);
 
+
+underscoreNum = parseInt(randomWord.length);
 
 function underscoreGen() {
   underscoreLength = "";
@@ -47,19 +52,29 @@ function underscoreGen() {
 
 underscoreGen();
 
+
+
 document.querySelector('.game-word').textContent = underscoreLength;
 
 var btn = document.querySelector('button');
 
-var userGuess = document.querySelector('input');
+btn.addEventListener('click', function(){
+  userGuess = document.querySelector('input').value;
+})
 
 
 
+function compare(x) {
+  answer = "";
+ 
+  for (i = 0; i < randomWord.length; i++) {
+    if (x == randomWord[i]) {
+      answer.push(x);
+    }
+  }
+}
 
-
-
-
-
+compare(userGuess);
 
 
 
