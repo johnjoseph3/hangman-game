@@ -35,8 +35,6 @@ function chooseWord (arr) {
 }
 chooseWord(sanArr);
 
-
-
   
 
 function underscoreGen() {
@@ -64,8 +62,10 @@ function userGuess() {
     if (userGuess === randomWord[i]) {
        display[i] = userGuess;
        document.querySelector('.game-word').textContent = display.join(' ');
+       
     }
   }
+document.querySelector('input').value = "";
 }
 
 
