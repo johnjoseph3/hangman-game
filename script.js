@@ -84,6 +84,7 @@ document.querySelector('input').value = "";
 userAttempts -= 1;
 guessOutput.innerHTML = "You have: " + userAttempts + " guesses left";    
     } else {
+      gameWord.textContent = "The word was: " + randomWord;
       alert('youre out of tries')
       btn.className += " hide";
       inputField.className += " hide";
