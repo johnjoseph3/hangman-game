@@ -65,13 +65,14 @@ userAttempts = 8;
 guessOutput = document.querySelector('.attempt-counter');
 guessOutput.innerHTML = "You have: " + userAttempts + " guesses left";   
 inputField = document.querySelector('input');
-userGuess = document.querySelector('input').value;
+
 
 
 function userGuess() {
   
 if (userAttempts > 0){
   
+  userGuess = document.querySelector('input').value;
   
   for (i = 0; i < randomWord.length; i++) {
     if (userGuess === randomWord[i]) {
