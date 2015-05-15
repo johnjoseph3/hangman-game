@@ -32,3 +32,13 @@ body {
 	height: 200px;
 	background-color: red;
 }
+
+.hide {
+	display: none;
+}
+
+.appear {
+	display: block;
+}
+
+

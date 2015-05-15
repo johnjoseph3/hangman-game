@@ -51,20 +51,27 @@ underscoreGen();
 var gameWord = document.querySelector('.game-word');
 gameWord.textContent = display.join(' ');
 
-var btn = document.querySelector('button');
+var btn = document.querySelector('.submit-btn');
 btn.addEventListener('click', userGuess);
 
+var resetButton = document.querySelector('.reset-btn');
+resetButton.addEventListener('click', function() {
+  location.reload();
+} );
 
 
 userAttempts = 8;
 
 guessOutput = document.querySelector('.attempt-counter');
 guessOutput.innerHTML = "You have: " + userAttempts + " guesses left";   
+inputField = document.querySelector('input');
+userGuess = document.querySelector('input').value;
+
 
 function userGuess() {
   
 if (userAttempts > 0){
-  userGuess = document.querySelector('input').value;
+  
   
   for (i = 0; i < randomWord.length; i++) {
     if (userGuess === randomWord[i]) {
@@ -77,6 +84,9 @@ userAttempts -= 1;
 guessOutput.innerHTML = "You have: " + userAttempts + " guesses left";    
     } else {
       alert('youre out of tries')
+      btn.className += " hide";
+      inputField.className += " hide";
+      resetButton.className = "appear";
   }
 }
 
