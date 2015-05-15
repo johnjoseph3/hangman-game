@@ -14,17 +14,17 @@ var hangmanWords = [
 
 
 
-function sanitize (arr){
-  sanArr = [];
+function clean (arr){
+  cleanArr = [];
 
   for (i = 0; i < arr.length; i++) {
     if (arr[i].length > 2) {
-      sanArr.push(arr[i]);
+      cleanArr.push(arr[i]);
     }
   } 
-  return sanArr;  
+  return cleanArr;  
 }
-sanitize(hangmanWords);
+clean(hangmanWords);
 
 
 
@@ -33,7 +33,7 @@ function chooseWord (arr) {
   randomWord = arr[randomNum];
   return randomWord;
 }
-chooseWord(sanArr);
+chooseWord(cleanArr);
 
   
 
@@ -48,24 +48,36 @@ function underscoreGen() {
 underscoreGen();
 
 
-
-document.querySelector('.game-word').textContent = display.join(' ');
+var gameWord = document.querySelector('.game-word');
+gameWord.textContent = display.join(' ');
 
 var btn = document.querySelector('button');
 btn.addEventListener('click', userGuess);
 
 
+
+userAttempts = 8;
+
+guessOutput = document.querySelector('.attempt-counter');
+guessOutput.innerHTML = "You have: " + userAttempts + " guesses left";   
+
 function userGuess() {
+  
+if (userAttempts > 0){
   userGuess = document.querySelector('input').value;
   
   for (i = 0; i < randomWord.length; i++) {
     if (userGuess === randomWord[i]) {
        display[i] = userGuess;
-       document.querySelector('.game-word').textContent = display.join(' ');
-       
+       gameWord.textContent = display.join(' ');
     }
-  }
+  } 
 document.querySelector('input').value = "";
+userAttempts -= 1;
+guessOutput.innerHTML = "You have: " + userAttempts + " guesses left";    
+    } else {
+      alert('youre out of tries')
+  }
 }
 
 
