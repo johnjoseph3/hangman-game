@@ -70,7 +70,7 @@ inputField = document.querySelector('input');
 
 function userGuess() {
   
-if (userAttempts > 0){
+if (userAttempts > 0 && randomWord != display.join('')){
   
   userGuess = document.querySelector('input').value;
   
@@ -83,14 +83,29 @@ if (userAttempts > 0){
 document.querySelector('input').value = "";
 userAttempts -= 1;
 guessOutput.innerHTML = "You have: " + userAttempts + " guesses left";    
-    } else {
-      gameWord.textContent = "The word was: " + randomWord;
-      alert('youre out of tries')
-      btn.className += " hide";
-      inputField.className += " hide";
-      resetButton.className = "appear";
-  }
+   } else if(userAttempts > 0 && randomWord === display.join('')) {
+    alert('hi');
+   } else {
+    alert('blah');
+   }
 }
+
+
+
+
+
+
+
+
+  // else {
+  //     gameWord.textContent = "The word was: " + randomWord;
+  //     alert('youre out of tries')
+  //     btn.className += " hide";
+  //     inputField.className += " hide";
+  //     resetButton.className = "appear";
+  // }
+
+
 
 
 
