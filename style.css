@@ -1,11 +1,13 @@
 body {
+	background: url(purple-background/03.jpg);
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 300;
 }
 
 .game-screen {
 	position: relative;
 	width: 60em;
 	height: 30em;
-	border: 2px solid black;
 	margin: 12em auto;
 }
 
@@ -29,6 +31,7 @@ body {
 	position: absolute;
 	top: 0;
 	right: 0;
+	font-size: 2em;
 }
 
 .hide {
@@ -38,5 +41,29 @@ body {
 .appear {
 	display: block;
 }
+
+input[type="text"] {
+  display: block;
+  margin: 0;
+  font-family: Roboto Condensed;
+  font-size: 18px;
+  box-shadow: none;
+  border-radius: none;
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+.style-2{
+  padding: 10px;
+  border: solid 5px #c9c9c9;
+  transition: border 0.3s;
+}
+.style-2 [type="text"]:focus,
+.style-2 [type="text"].focus {
+  border: solid 5px #969696;
+}
+
 
 
