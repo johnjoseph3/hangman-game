@@ -17,7 +17,7 @@ var hangmanWords = [
 function clean (arr){
   cleanArr = [];
 
-  for (i = 0; i < arr.length; i++) {
+  for (var i = 0; i < arr.length; i++) {
     if (arr[i].length > 2) {
       cleanArr.push(arr[i]);
     }
@@ -52,7 +52,7 @@ var gameWord = document.querySelector('.game-word');
 gameWord.textContent = display.join(' ');
 
 var btn = document.querySelector('.submit-btn');
-btn.addEventListener('click', userGuess);
+
 
 var resetButton = document.querySelector('.reset-btn');
 resetButton.addEventListener('click', function() {
@@ -68,47 +68,35 @@ inputField = document.querySelector('input');
 
 
 
-function userGuess() {
-  
-if (userAttempts > 0 && randomWord != display.join('')){
+btn.addEventListener('click', function () {
   
   userGuess = document.querySelector('input').value;
   
-  for (i = 0; i < randomWord.length; i++) {
+  for (var i = 0; i < randomWord.length; i++) {
     if (userGuess === randomWord[i]) {
        display[i] = userGuess;
        gameWord.textContent = display.join(' ');
     }
   } 
-document.querySelector('input').value = "";
-userAttempts -= 1;
-guessOutput.innerHTML = "You have: " + userAttempts + " guesses left";    
-   } else if(userAttempts > 0 && randomWord === display.join('')) {
-    alert('hi');
-   } else {
-    alert('blah');
-   }
-}
 
+  document.querySelector('input').value = "";
+  userAttempts -= 1;
+  guessOutput.innerHTML = "You have: " + userAttempts + " guesses left";     
 
+  if (randomWord === display.join('')) {
+    gameWord.textContent = "Great job! You got the word!";
+    btn.className += " hide";
+    inputField.className += " hide";
+    resetButton.className = "appear";
+  }
 
-
-
-
-
-
-  // else {
-  //     gameWord.textContent = "The word was: " + randomWord;
-  //     alert('youre out of tries')
-  //     btn.className += " hide";
-  //     inputField.className += " hide";
-  //     resetButton.className = "appear";
-  // }
-
-
-
-
-
+  if (userAttempts <= 0){
+    gameWord.textContent = "You\'ve run out of guesses. The word was: " + randomWord + ".";
+    btn.className += " hide";
+    inputField.className += " hide";
+    resetButton.className = "appear";
+  }
+});
 
 
 
