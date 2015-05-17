@@ -78,7 +78,7 @@ btn.addEventListener('click', function () {
        gameWord.textContent = display.join(' ');
     }
   } 
-
+  inputField.focus();
   document.querySelector('input').value = "";
   userAttempts -= 1;
   guessOutput.innerHTML = "You have: " + userAttempts + " guesses left";     
