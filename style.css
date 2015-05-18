@@ -4,24 +4,32 @@ body {
 	font-weight: 300;
 }
 
+.banner {
+	width: 100%;
+	font-size: 8em;
+	text-align: center;
+	padding: 0.25em 0;
+
+}
+
 .game-screen {
 	position: relative;
 	width: 60em;
 	height: 30em;
-	margin: 12em auto;
+	margin: 0 auto;
 }
 
 .game-word-container {
 	font-size: 5em;
 	text-align: center;
 	margin-top: 2em;
-	text-align: left;
+	text-align: center;
 }
 
 .guess-container {
 	position: relative;
 	margin: 4em auto;
-	width: 50%;
+	width: 100%;
 	text-align: center;
 }
 
@@ -30,6 +38,7 @@ body {
 	top: 0;
 	right: 0;
 	font-size: 2em;
+	float: right;
 }
 
 .hide {
@@ -61,7 +70,7 @@ input[type="text"] {
   border: 0;
   cursor: pointer;
   padding: 8px 8px;
-  margin-top: 4em;
+  margin-top: 2em;
   float: right;
 }
 
